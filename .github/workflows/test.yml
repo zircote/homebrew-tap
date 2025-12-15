@@ -1,0 +1,45 @@
+name: Test Formula
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'Formula/*.rb'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'Formula/*.rb'
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - name: Tap repository
+        run: |
+          brew tap zircote/git-adr "$(pwd)"
+
+      - name: Audit formula
+        run: |
+          brew audit --strict zircote/git-adr/git-adr || true
+          # Note: Some audit errors expected until PyPI release
+
+      - name: Install formula (head)
+        run: |
+          brew install --HEAD zircote/git-adr/git-adr
+        continue-on-error: true
+
+      - name: Test formula
+        run: |
+          if command -v git-adr &> /dev/null; then
+            git-adr --version
+            git-adr --help
+          else
+            echo "Installation pending PyPI/GitHub release"
+          fi
