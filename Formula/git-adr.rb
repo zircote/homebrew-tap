@@ -3,10 +3,8 @@ class GitAdr < Formula
 
   desc "Manage Architecture Decision Records using git notes"
   homepage "https://github.com/zircote/git-adr"
-  # NOTE: Update to PyPI URL after first release:
-  # url "https://files.pythonhosted.org/packages/source/g/git-adr/git_adr-VERSION.tar.gz"
-  url "https://github.com/zircote/git-adr/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "PLACEHOLDER_UNTIL_RELEASE"
+  url "https://files.pythonhosted.org/packages/f5/87/26100536d21837bf0df5ed0c9e405abfd646b1a9fdd53cae0049836b84ce/git_adr-0.1.0.tar.gz"
+  sha256 "320ae556aaf22fde6997d91f050c563a9a446fa58176f2606ef2b443a1c42573"
   license "MIT"
   head "https://github.com/zircote/git-adr.git", branch: "main"
 
