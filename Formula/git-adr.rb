@@ -3,8 +3,8 @@ class GitAdr < Formula
 
   desc "Manage Architecture Decision Records using git notes"
   homepage "https://github.com/zircote/git-adr"
-  url "https://files.pythonhosted.org/packages/d3/9d/37867353a8a6e54027aa4d903e190c3e5641fb6bfd49d702dfe3c529e3d9/git_adr-0.1.1.tar.gz"
-  sha256 "eb1a11b95d512652ca0d463946d1bf2dda5774a0608216549a252d8b4bf7ec5b"
+  url "https://files.pythonhosted.org/packages/f5/87/26100536d21837bf0df5ed0c9e405abfd646b1a9fdd53cae0049836b84ce/git_adr-0.1.0.tar.gz"
+  sha256 "320ae556aaf22fde6997d91f050c563a9a446fa58176f2606ef2b443a1c42573"
   license "MIT"
   head "https://github.com/zircote/git-adr.git", branch: "main"
 
@@ -12,55 +12,55 @@ class GitAdr < Formula
   depends_on "python@3.12"
 
   resource "typer" do
-    url "https://files.pythonhosted.org/packages/d3/9d/37867353a8a6e54027aa4d903e190c3e5641fb6bfd49d702dfe3c529e3d9/git_adr-0.1.1.tar.gz"
-    sha256 "eb1a11b95d512652ca0d463946d1bf2dda5774a0608216549a252d8b4bf7ec5b"
+    url "https://files.pythonhosted.org/packages/f5/87/26100536d21837bf0df5ed0c9e405abfd646b1a9fdd53cae0049836b84ce/git_adr-0.1.0.tar.gz"
+    sha256 "320ae556aaf22fde6997d91f050c563a9a446fa58176f2606ef2b443a1c42573"
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/d3/9d/37867353a8a6e54027aa4d903e190c3e5641fb6bfd49d702dfe3c529e3d9/git_adr-0.1.1.tar.gz"
-    sha256 "eb1a11b95d512652ca0d463946d1bf2dda5774a0608216549a252d8b4bf7ec5b"
+    url "https://files.pythonhosted.org/packages/f5/87/26100536d21837bf0df5ed0c9e405abfd646b1a9fdd53cae0049836b84ce/git_adr-0.1.0.tar.gz"
+    sha256 "320ae556aaf22fde6997d91f050c563a9a446fa58176f2606ef2b443a1c42573"
   end
 
   resource "python-frontmatter" do
-    url "https://files.pythonhosted.org/packages/d3/9d/37867353a8a6e54027aa4d903e190c3e5641fb6bfd49d702dfe3c529e3d9/git_adr-0.1.1.tar.gz"
-    sha256 "eb1a11b95d512652ca0d463946d1bf2dda5774a0608216549a252d8b4bf7ec5b"
+    url "https://files.pythonhosted.org/packages/f5/87/26100536d21837bf0df5ed0c9e405abfd646b1a9fdd53cae0049836b84ce/git_adr-0.1.0.tar.gz"
+    sha256 "320ae556aaf22fde6997d91f050c563a9a446fa58176f2606ef2b443a1c42573"
   end
 
   resource "mistune" do
-    url "https://files.pythonhosted.org/packages/d3/9d/37867353a8a6e54027aa4d903e190c3e5641fb6bfd49d702dfe3c529e3d9/git_adr-0.1.1.tar.gz"
-    sha256 "eb1a11b95d512652ca0d463946d1bf2dda5774a0608216549a252d8b4bf7ec5b"
+    url "https://files.pythonhosted.org/packages/f5/87/26100536d21837bf0df5ed0c9e405abfd646b1a9fdd53cae0049836b84ce/git_adr-0.1.0.tar.gz"
+    sha256 "320ae556aaf22fde6997d91f050c563a9a446fa58176f2606ef2b443a1c42573"
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/d3/9d/37867353a8a6e54027aa4d903e190c3e5641fb6bfd49d702dfe3c529e3d9/git_adr-0.1.1.tar.gz"
-    sha256 "eb1a11b95d512652ca0d463946d1bf2dda5774a0608216549a252d8b4bf7ec5b"
+    url "https://files.pythonhosted.org/packages/f5/87/26100536d21837bf0df5ed0c9e405abfd646b1a9fdd53cae0049836b84ce/git_adr-0.1.0.tar.gz"
+    sha256 "320ae556aaf22fde6997d91f050c563a9a446fa58176f2606ef2b443a1c42573"
   end
 
   # Transitive dependencies for typer
   resource "click" do
-    url "https://files.pythonhosted.org/packages/d3/9d/37867353a8a6e54027aa4d903e190c3e5641fb6bfd49d702dfe3c529e3d9/git_adr-0.1.1.tar.gz"
-    sha256 "eb1a11b95d512652ca0d463946d1bf2dda5774a0608216549a252d8b4bf7ec5b"
+    url "https://files.pythonhosted.org/packages/f5/87/26100536d21837bf0df5ed0c9e405abfd646b1a9fdd53cae0049836b84ce/git_adr-0.1.0.tar.gz"
+    sha256 "320ae556aaf22fde6997d91f050c563a9a446fa58176f2606ef2b443a1c42573"
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/d3/9d/37867353a8a6e54027aa4d903e190c3e5641fb6bfd49d702dfe3c529e3d9/git_adr-0.1.1.tar.gz"
-    sha256 "eb1a11b95d512652ca0d463946d1bf2dda5774a0608216549a252d8b4bf7ec5b"
+    url "https://files.pythonhosted.org/packages/f5/87/26100536d21837bf0df5ed0c9e405abfd646b1a9fdd53cae0049836b84ce/git_adr-0.1.0.tar.gz"
+    sha256 "320ae556aaf22fde6997d91f050c563a9a446fa58176f2606ef2b443a1c42573"
   end
 
   # Transitive dependencies for rich
   resource "markdown-it-py" do
-    url "https://files.pythonhosted.org/packages/d3/9d/37867353a8a6e54027aa4d903e190c3e5641fb6bfd49d702dfe3c529e3d9/git_adr-0.1.1.tar.gz"
-    sha256 "eb1a11b95d512652ca0d463946d1bf2dda5774a0608216549a252d8b4bf7ec5b"
+    url "https://files.pythonhosted.org/packages/f5/87/26100536d21837bf0df5ed0c9e405abfd646b1a9fdd53cae0049836b84ce/git_adr-0.1.0.tar.gz"
+    sha256 "320ae556aaf22fde6997d91f050c563a9a446fa58176f2606ef2b443a1c42573"
   end
 
   resource "mdurl" do
-    url "https://files.pythonhosted.org/packages/d3/9d/37867353a8a6e54027aa4d903e190c3e5641fb6bfd49d702dfe3c529e3d9/git_adr-0.1.1.tar.gz"
-    sha256 "eb1a11b95d512652ca0d463946d1bf2dda5774a0608216549a252d8b4bf7ec5b"
+    url "https://files.pythonhosted.org/packages/f5/87/26100536d21837bf0df5ed0c9e405abfd646b1a9fdd53cae0049836b84ce/git_adr-0.1.0.tar.gz"
+    sha256 "320ae556aaf22fde6997d91f050c563a9a446fa58176f2606ef2b443a1c42573"
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/d3/9d/37867353a8a6e54027aa4d903e190c3e5641fb6bfd49d702dfe3c529e3d9/git_adr-0.1.1.tar.gz"
-    sha256 "eb1a11b95d512652ca0d463946d1bf2dda5774a0608216549a252d8b4bf7ec5b"
+    url "https://files.pythonhosted.org/packages/f5/87/26100536d21837bf0df5ed0c9e405abfd646b1a9fdd53cae0049836b84ce/git_adr-0.1.0.tar.gz"
+    sha256 "320ae556aaf22fde6997d91f050c563a9a446fa58176f2606ef2b443a1c42573"
   end
 
   def install
