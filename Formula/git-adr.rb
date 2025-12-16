@@ -7,6 +7,7 @@ class GitAdr < Formula
   url "https://files.pythonhosted.org/packages/6b/03/2fe2bc8c26dfe8123029f5dd94d344970d00fa2ebbea7120b07876641bbd/git_adr-0.1.5.tar.gz"
   sha256 "8381d0b232b56d673b467d532f3871d0fb1436af24016422ec6a9df901be4ded"
 
+  depends_on "libsodium"  # Required to build PyNaCl
   depends_on "libyaml"
   depends_on "python@3.12"
   depends_on "rust" => :build  # Required to build tiktoken
