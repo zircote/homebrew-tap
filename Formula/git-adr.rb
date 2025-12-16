@@ -9,6 +9,7 @@ class GitAdr < Formula
 
   depends_on "libyaml"
   depends_on "python@3.12"
+  depends_on "rust" => :build  # Required to build tiktoken
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/3d/fa/656b739db8587d7b5dfa22e22ed02566950fbfbcdc20311993483657a5c0/click-8.3.1.tar.gz"
