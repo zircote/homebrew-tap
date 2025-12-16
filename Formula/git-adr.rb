@@ -4,8 +4,8 @@ class GitAdr < Formula
   desc "Architecture Decision Records management using git notes"
   homepage "https://github.com/zircote/git-adr"
   license "MIT"
-  url "https://files.pythonhosted.org/packages/fb/cd/2bf761413432e693a9832f97ccc8e98c97332c178f3013388a9f52114605/git_adr-0.1.3.tar.gz"
-  sha256 "06b36343168735db5367d75ff11d306ee8392585882c96d2a13314ef0be68f92"
+  url "https://files.pythonhosted.org/packages/be/58/bab4ef0646936223df049a36c724318a68559ec176ebf556be8add29a12f/git_adr-0.1.4.tar.gz"
+  sha256 "1e074f73d0fd729455745cc7fb054fa630762ec4901589da483fde6ec871ab85"
 
   depends_on "libyaml"
   depends_on "python@3.12"
