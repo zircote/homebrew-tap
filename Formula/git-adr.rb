@@ -101,8 +101,8 @@ class GitAdr < Formula
   end
 
   resource "google-generativeai" do
-    url ""
-    sha256 ""
+    url "https://github.com/google/generative-ai-python/archive/refs/tags/v0.8.5.tar.gz"
+    sha256 "2baa9b7cda3df8d9ca609b0eeac404e697bf0d046294becc5d90aa5b30c4c272"
   end
 
   resource "tiktoken" do
