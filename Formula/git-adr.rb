@@ -2,12 +2,12 @@ class GitAdr < Formula
   desc "Architecture Decision Records management using git notes"
   homepage "https://github.com/zircote/git-adr"
   license "MIT"
-  version "0.2.0"
+  version "0.2.1"
 
   on_macos do
     on_arm do
-      url "https://github.com/zircote/git-adr/releases/download/v0.2.0/git-adr-macos-arm64.tar.gz"
-      sha256 "f060671b215ace159bce356bb4709bbed3bec07817a7d242306c9532be2c5f06"
+      url "https://github.com/zircote/git-adr/releases/download/v0.2.1/git-adr-macos-arm64.tar.gz"
+      sha256 "bf0d1325c033de6331b6b527c05c199007c22189bd894045d8d64fdd6c0f159b"
     end
 
     on_intel do
@@ -19,8 +19,8 @@ class GitAdr < Formula
 
   on_linux do
     on_intel do
-      url "https://github.com/zircote/git-adr/releases/download/v0.2.0/git-adr-linux-x86_64.tar.gz"
-      sha256 "7f9a30e1e718049fb154c7bf182a6a52df997592cbc609b1f4851f70156f939b"
+      url "https://github.com/zircote/git-adr/releases/download/v0.2.1/git-adr-linux-x86_64.tar.gz"
+      sha256 "3dfac963314c285e1e6ccda9ea59178aa8d6f0c476fb6854c97da3605382b2e3"
     end
   end
 
