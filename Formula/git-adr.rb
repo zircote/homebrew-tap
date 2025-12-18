@@ -4,8 +4,8 @@ class GitAdr < Formula
   desc "Architecture Decision Records management using git notes"
   homepage "https://github.com/zircote/git-adr"
   license "MIT"
-  url "https://files.pythonhosted.org/packages/1a/c2/bbd9b06b53c751807a6e8aeecc3bd3429539bdfb8f53a71400b9e66808f9/git_adr-0.2.2.tar.gz"
-  sha256 "392b16ac81ca4950a6c8469695741b7658e9ab29cc04133aebf2a7553e875958"
+  url "https://files.pythonhosted.org/packages/27/45/ee8d71623ad5455d1eb53417035f1db5d01d28aa12db375585f3f80b7a60/git_adr-0.2.3.tar.gz"
+  sha256 "806087190eadfbad9dd6d4fd7e97f2296b5c7b2a42ebc07a28cdfc8939d72888"
 
   depends_on "libyaml"
   depends_on "python@3.12"
@@ -71,8 +71,8 @@ class GitAdr < Formula
   end
 
   resource "langchain-openai" do
-    url "https://files.pythonhosted.org/packages/cf/f8/223a340be988bc6f87b57837939589930675041a19382462f48827a67575/langchain_openai-1.1.4.tar.gz"
-    sha256 "c3b6d5b58fdeefbeaa90fad9169cf79dddd5db78317ef2f57aa3da9815dc18b6"
+    url "https://files.pythonhosted.org/packages/ae/67/228dc28b4498ea16422577013b5bb4ba35a1b99f8be975d6747c7a9f7e6a/langchain_openai-1.1.6.tar.gz"
+    sha256 "e306612654330ae36fb6bbe36db91c98534312afade19e140c3061fe4208dac8"
   end
 
   resource "langchain-anthropic" do
