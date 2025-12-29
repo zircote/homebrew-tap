@@ -6,7 +6,9 @@ Official [Homebrew](https://brew.sh/) tap for zircote projects.
 
 | Formula | Description |
 |---------|-------------|
+| [adrscope](https://github.com/zircote/adrscope) | Validate, visualize, and manage Architecture Decision Records (ADRs) |
 | [git-adr](https://github.com/zircote/git-adr) | Architecture Decision Records management using git notes |
+| [subcog](https://github.com/zircote/subcog) | A persistent memory system for AI coding assistants |
 
 ## Installation
 

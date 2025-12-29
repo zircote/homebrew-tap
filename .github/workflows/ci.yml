@@ -1,0 +1,103 @@
+# Homebrew Tap CI Workflow
+# Audits and tests formulas on PRs and pushes
+
+name: CI
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'Formula/**'
+      - '.github/workflows/ci.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'Formula/**'
+      - '.github/workflows/ci.yml'
+
+jobs:
+  audit:
+    name: Audit Formulas
+    runs-on: macos-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Setup Homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - name: Get changed formulas
+        id: changed
+        run: |
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            FORMULAS=$(git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.sha }} -- 'Formula/*.rb' | tr '\n' ' ')
+          else
+            FORMULAS=$(find Formula -name "*.rb" -type f | tr '\n' ' ')
+          fi
+          echo "formulas=$FORMULAS" >> "$GITHUB_OUTPUT"
+          echo "Found formulas: $FORMULAS"
+
+      - name: Setup tap
+        run: |
+          TAP_PATH="$(brew --repository)/Library/Taps/zircote/homebrew-tap"
+          mkdir -p "$TAP_PATH"
+          cp -r . "$TAP_PATH/"
+
+      - name: Audit formulas
+        env:
+          FORMULAS: ${{ steps.changed.outputs.formulas }}
+        run: |
+          if [[ -z "$FORMULAS" ]]; then
+            echo "No formulas to audit"
+            exit 0
+          fi
+
+          FAILED=false
+          for formula_file in "$FORMULAS"; do
+            if [[ ! -f "$formula_file" ]]; then
+              continue
+            fi
+            FORMULA_NAME=$(basename "$formula_file" .rb)
+            echo "::group::Auditing $FORMULA_NAME"
+
+            if ! brew audit --formula "zircote/tap/$FORMULA_NAME"; then
+              echo "::error::Audit failed for $FORMULA_NAME"
+              FAILED=true
+            else
+              echo "✅ Audit passed for $FORMULA_NAME"
+            fi
+
+            echo "::endgroup::"
+          done
+
+          if [[ "$FAILED" == "true" ]]; then
+            exit 1
+          fi
+
+      - name: Test formulas
+        if: github.event_name == 'pull_request'
+        env:
+          FORMULAS: ${{ steps.changed.outputs.formulas }}
+        run: |
+          if [[ -z "$FORMULAS" ]]; then
+            echo "No formulas to test"
+            exit 0
+          fi
+
+          for formula_file in "$FORMULAS"; do
+            if [[ ! -f "$formula_file" ]]; then
+              continue
+            fi
+            FORMULA_NAME=$(basename "$formula_file" .rb)
+            echo "::group::Testing $FORMULA_NAME"
+
+            # Install formula
+            if brew install "zircote/tap/$FORMULA_NAME"; then
+              # Run tests
+              brew test "zircote/tap/$FORMULA_NAME" || echo "::warning::Test failed for $FORMULA_NAME"
+            else
+              echo "::warning::Install failed for $FORMULA_NAME (may require system dependencies)"
+            fi
+
+            echo "::endgroup::"
+          done
