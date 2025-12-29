@@ -1,0 +1,126 @@
+# Homebrew Livecheck Workflow
+# Checks for outdated formulas on a schedule
+
+name: Livecheck
+
+on:
+  schedule:
+    # Run daily at 6 AM UTC
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+jobs:
+  livecheck:
+    name: Check for Updates
+    runs-on: macos-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Setup Homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - name: Setup tap
+        run: |
+          TAP_PATH="$(brew --repository)/Library/Taps/zircote/homebrew-tap"
+          mkdir -p "$TAP_PATH"
+          cp -r . "$TAP_PATH/"
+
+      - name: Run livecheck
+        id: livecheck
+        run: |
+          OUTDATED=()
+
+          for formula_file in Formula/*.rb; do
+            if [[ ! -f "$formula_file" ]]; then
+              continue
+            fi
+
+            FORMULA_NAME=$(basename "$formula_file" .rb)
+            echo "Checking: zircote/tap/$FORMULA_NAME"
+
+            RESULT=$(brew livecheck --json "zircote/tap/$FORMULA_NAME" 2>/dev/null || echo "[]")
+
+            if [[ -n "$RESULT" && "$RESULT" != "[]" ]]; then
+              OUTDATED_FLAG=$(echo "$RESULT" | jq -r '.[0].version.outdated // false')
+              CURRENT=$(echo "$RESULT" | jq -r '.[0].version.current // "unknown"')
+              LATEST=$(echo "$RESULT" | jq -r '.[0].version.latest // "unknown"')
+
+              if [[ "$OUTDATED_FLAG" == "true" ]]; then
+                echo "  ⚠️ Outdated: $CURRENT -> $LATEST"
+                OUTDATED+=("$FORMULA_NAME:$CURRENT:$LATEST")
+              else
+                echo "  ✅ Up to date: $CURRENT"
+              fi
+            else
+              echo "  ⏭️ No livecheck or unable to check"
+            fi
+          done
+
+          if [[ ${#OUTDATED[@]} -gt 0 ]]; then
+            echo "outdated=${OUTDATED[*]}" >> "$GITHUB_OUTPUT"
+            echo "count=${#OUTDATED[@]}" >> "$GITHUB_OUTPUT"
+          else
+            echo "outdated=" >> "$GITHUB_OUTPUT"
+            echo "count=0" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create issues for outdated formulas
+        if: steps.livecheck.outputs.count != '0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          OUTDATED: ${{ steps.livecheck.outputs.outdated }}
+        run: |
+          for entry in "$OUTDATED"; do
+            FORMULA=$(echo "$entry" | cut -d: -f1)
+            CURRENT=$(echo "$entry" | cut -d: -f2)
+            LATEST=$(echo "$entry" | cut -d: -f3)
+
+            # Check if issue already exists
+            EXISTING=$(gh issue list --search "in:title \"$FORMULA\" \"$LATEST\"" --json number --jq 'length')
+
+            if [[ "$EXISTING" -eq 0 ]]; then
+              echo "Creating issue for $FORMULA $LATEST"
+
+              gh issue create \
+                --title "Update $FORMULA to $LATEST" \
+                --body "$(cat <<EOF
+The formula \`$FORMULA\` has a new upstream version available.
+
+| Current | Latest |
+|---------|--------|
+| $CURRENT | $LATEST |
+
+---
+🤖 Detected by livecheck workflow
+EOF
+)" \
+                --label "update"
+            else
+              echo "Issue already exists for $FORMULA $LATEST"
+            fi
+          done
+
+      - name: Summary
+        env:
+          COUNT: ${{ steps.livecheck.outputs.count }}
+          OUTDATED: ${{ steps.livecheck.outputs.outdated }}
+        run: |
+          {
+            echo "## Homebrew Livecheck Summary"
+            echo ""
+            if [[ "$COUNT" -eq 0 ]]; then
+              echo "✅ All formulas are up to date!"
+            else
+              echo "⚠️ Found **$COUNT** outdated formula(s)"
+              echo ""
+              echo "| Formula | Current | Latest |"
+              echo "|---------|---------|--------|"
+              for entry in "$OUTDATED"; do
+                FORMULA=$(echo "$entry" | cut -d: -f1)
+                CURRENT=$(echo "$entry" | cut -d: -f2)
+                LATEST=$(echo "$entry" | cut -d: -f3)
+                echo "| $FORMULA | $CURRENT | $LATEST |"
+              done
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
