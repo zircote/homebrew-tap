@@ -21,6 +21,7 @@ class Subcog < Formula
 
   def install
     bin.install "subcog"
+    (var/"log/subcog").mkpath
   end
 
   test do
