@@ -1,22 +1,22 @@
 class Subcog < Formula
   desc "A persistent memory system for AI coding assistants"
   homepage "https://github.com/zircote/subcog"
-  version "0.3.3"
+  version "0.3.2"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/zircote/subcog/releases/download/v0.3.3/subcog-0.3.3-x86_64-apple-darwin.tar.gz"
-      sha256 "a513b95393da379ad356349832978e199274bde88e102c9ca654359da1d7bb8a"
+      url "https://github.com/zircote/subcog/releases/download/v0.3.2/subcog-0.3.2-x86_64-apple-darwin.tar.gz"
+      sha256 "13be015426bd2ca6576711cdea8b806e7bedfb4d3bcea8c05782588ed7020cab"
     else
-      url "https://github.com/zircote/subcog/releases/download/v0.3.3/subcog-0.3.3-aarch64-apple-darwin.tar.gz"
-      sha256 "882b4c8ff178180ce604fc77a393a4888700b71bc2db5d633afb5720f47ee4c7"
+      url "https://github.com/zircote/subcog/releases/download/v0.3.2/subcog-0.3.2-aarch64-apple-darwin.tar.gz"
+      sha256 "69201ebd79636bfdb47c86147de4dfd2e011495fc19c1cca752a67839d0be922"
     end
   end
 
   on_linux do
-    url "https://github.com/zircote/subcog/releases/download/v0.3.3/subcog-0.3.3-x86_64-unknown-linux-gnu.tar.gz"
-    sha256 "01fbc86f3b344478a1473a40bee7a203045876a4e1ba7ea4fea50d05e2d181d4"
+    url "https://github.com/zircote/subcog/releases/download/v0.3.2/subcog-0.3.2-x86_64-unknown-linux-gnu.tar.gz"
+    sha256 "69a82ad9ee78f91ec0af85bdd4a9c18803b43c4ae339e461c54133b90e827a3f"
   end
 
   def install
