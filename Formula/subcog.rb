@@ -7,16 +7,16 @@ class Subcog < Formula
   on_macos do
     if Hardware::CPU.intel?
       url "https://github.com/zircote/subcog/releases/download/v0.6.0-rc3/subcog-0.6.0-rc3-x86_64-apple-darwin.tar.gz"
-      sha256 "16e0849944af3d30e91fb0dd0283be7ae77d54debe772339ff8f0f859c49dc88"
+      sha256 "189925c812633201c841123b0448e19a2e18e5e04955fe4b058cca28b215f7a3"
     else
       url "https://github.com/zircote/subcog/releases/download/v0.6.0-rc3/subcog-0.6.0-rc3-aarch64-apple-darwin.tar.gz"
-      sha256 "f599950b6c248b7c204a8ca8762390338df9b830c58a763d17c1d767ce3728e2"
+      sha256 "618c8665b43036f67dca56c7cb78caab224fedc3f56e0dc2dc59d144c96fc60b"
     end
   end
 
   on_linux do
     url "https://github.com/zircote/subcog/releases/download/v0.6.0-rc3/subcog-0.6.0-rc3-x86_64-unknown-linux-gnu.tar.gz"
-    sha256 "39b5fa4feac5cfba6a0140cbd6139f2d5d6d7e14a28db2918b76debda8dfbcd5"
+    sha256 "3109c497b2268b720f18f75bbb790f1b8e10155b97bc342207b2332054df7ef0"
   end
 
   def install
