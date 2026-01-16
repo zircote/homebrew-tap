@@ -23,8 +23,10 @@ jobs:
       - name: Setup tap
         run: |
           TAP_PATH="$(brew --repository)/Library/Taps/zircote/homebrew-tap"
-          mkdir -p "$TAP_PATH"
-          cp -r . "$TAP_PATH/"
+          if [[ "$(pwd)" != "$TAP_PATH" ]]; then
+            mkdir -p "$TAP_PATH"
+            cp -r . "$TAP_PATH/"
+          fi
 
       - name: Run livecheck
         id: livecheck
