@@ -7,20 +7,20 @@ class Adrscope < Formula
   on_macos do
     if Hardware::CPU.intel?
       url "https://github.com/zircote/adrscope/releases/download/v0.3.0/adrscope-0.3.0-x86_64-apple-darwin.tar.gz"
-      sha256 "cc9fbb4cae4dc2e009b57bdc5b78d2c21f20b9cdf3acc08a64ea09e79d9c16f3"
+      sha256 "f5d4405a6e507c5ac6c09d775212a8d222b22d6f5c4b98a09ef70b1d4aaadd7c"
     else
       url "https://github.com/zircote/adrscope/releases/download/v0.3.0/adrscope-0.3.0-aarch64-apple-darwin.tar.gz"
-      sha256 "524f4348dedf82e9e8eaaab35fb1ec4ab110f6d0ee4212dd5ee6c652c4f82187"
+      sha256 "953db8f2ac33e396e8a5045cd758ddd1584f8d6500caeb5350d5440e3cc216cf"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
       url "https://github.com/zircote/adrscope/releases/download/v0.3.0/adrscope-0.3.0-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "34596678b8a08c453df010f877653aa643ff80516f951b51af696fdd6f3502f4"
+      sha256 "8be087c2e1ede3779d3b23263ad59bed8303ec2fd47bcecc7fdd7083b528a245"
     else
       url "https://github.com/zircote/adrscope/releases/download/v0.3.0/adrscope-0.3.0-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "9b5cd337ed5f04aeb6e2410ad24afa4b9f5fe0fd62e1e7c3c550d5d38436d11d"
+      sha256 "3c1a9c02e5ee5cb7e4267d7e039622ecb7aae986bb63520a14b68739b081af68"
     end
   end
 
