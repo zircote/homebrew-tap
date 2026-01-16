@@ -71,7 +71,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           OUTDATED: ${{ steps.livecheck.outputs.outdated }}
         run: |
-          for entry in $OUTDATED; do
+          for entry in "$OUTDATED"; do
             FORMULA=$(echo "$entry" | cut -d: -f1)
             CURRENT=$(echo "$entry" | cut -d: -f2)
             LATEST=$(echo "$entry" | cut -d: -f3)
@@ -84,14 +84,17 @@ jobs:
 
               gh issue create \
                 --title "Update $FORMULA to $LATEST" \
-                --body "The formula \`$FORMULA\` has a new upstream version available.
+                --body "$(cat <<EOF
+The formula \`$FORMULA\` has a new upstream version available.
 
-          | Current | Latest |
-          |---------|--------|
-          | $CURRENT | $LATEST |
+| Current | Latest |
+|---------|--------|
+| $CURRENT | $LATEST |
 
-          ---
-          🤖 Detected by livecheck workflow" \
+---
+🤖 Detected by livecheck workflow
+EOF
+)" \
                 --label "update"
             else
               echo "Issue already exists for $FORMULA $LATEST"
@@ -113,7 +116,7 @@ jobs:
               echo ""
               echo "| Formula | Current | Latest |"
               echo "|---------|---------|--------|"
-              for entry in $OUTDATED; do
+              for entry in "$OUTDATED"; do
                 FORMULA=$(echo "$entry" | cut -d: -f1)
                 CURRENT=$(echo "$entry" | cut -d: -f2)
                 LATEST=$(echo "$entry" | cut -d: -f3)

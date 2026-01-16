@@ -53,7 +53,7 @@ jobs:
           fi
 
           FAILED=false
-          for formula_file in $FORMULAS; do
+          for formula_file in "$FORMULAS"; do
             if [[ ! -f "$formula_file" ]]; then
               continue
             fi
@@ -84,7 +84,7 @@ jobs:
             exit 0
           fi
 
-          for formula_file in $FORMULAS; do
+          for formula_file in "$FORMULAS"; do
             if [[ ! -f "$formula_file" ]]; then
               continue
             fi

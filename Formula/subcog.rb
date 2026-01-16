@@ -8,7 +8,7 @@ class Subcog < Formula
   # For now, build from source
   url "https://github.com/zircote/subcog.git",
       tag:      "v0.1.0",
-      revision: "HEAD"
+      revision: "8b553d0c496616d4e550ffe813f27b4e4cdbe258"
 
   depends_on "rust" => :build
 
