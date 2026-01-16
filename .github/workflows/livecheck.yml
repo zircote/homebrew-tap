@@ -23,8 +23,8 @@ jobs:
       - name: Setup tap
         run: |
           TAP_PATH="$(brew --repository)/Library/Taps/zircote/homebrew-tap"
-          if [[ "$(pwd)" != "$TAP_PATH" ]]; then
-            mkdir -p "$TAP_PATH"
+          # Only copy if not already at tap path (compare resolved paths)
+          if [[ "$(cd . && pwd -P)" != "$(mkdir -p "$TAP_PATH" && cd "$TAP_PATH" && pwd -P)" ]]; then
             cp -r . "$TAP_PATH/"
           fi
 
