@@ -2,7 +2,7 @@ class RlmRs < Formula
   desc "Recursive Language Model CLI for Claude Code - handles long-context tasks via chunking"
   homepage "https://github.com/zircote/rlm-rs"
   url "https://github.com/zircote/rlm-rs/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "PLACEHOLDER_SHA256"
+  sha256 "d5558cd419c8d46bdc958064cb97f963d1ea793866414c025906ec15033512ed"
   license "MIT"
   head "https://github.com/zircote/rlm-rs.git", branch: "main"
 
