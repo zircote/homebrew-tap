@@ -1,8 +1,9 @@
 class RlmRs < Formula
-  desc "Recursive Language Model CLI for Claude Code - handles long-context tasks via chunking"
+  desc "Recursive Language Model CLI for Claude Code"
   homepage "https://github.com/zircote/rlm-rs"
-  url "https://github.com/zircote/rlm-rs/archive/refs/tags/v1.2.3.tar.gz"
-  sha256 "72fe49679c6f0549f33a35a3e3997e51e0900b69fa529854de411f4a23fb0f1e"
+  url "https://github.com/zircote/rlm-rs/archive/refs/tags/v1.2.4.tar.gz"
+  sha256 "1adfdbacfe94a39414d581867c23930fa53ee3f306494b640fa8d0183f327bf6"
+  version "1.2.4"
   license "MIT"
   head "https://github.com/zircote/rlm-rs.git", branch: "main"
 
@@ -13,9 +14,9 @@ class RlmRs < Formula
   end
 
   test do
-    assert_match "rlm-rs #{version}", shell_output("#{bin}/rlm-rs --version")
+    assert_match version.to_s,
+      shell_output("#{bin}/rlm-rs --version")
 
-    # Test init command
     system "#{bin}/rlm-rs", "init"
     assert_predicate testpath/".rlm/rlm-state.db", :exist?
   end
