@@ -2,7 +2,7 @@ class RlmRs < Formula
   desc "Recursive Language Model CLI for Claude Code"
   homepage "https://github.com/zircote/rlm-rs"
   url "https://github.com/zircote/rlm-rs/archive/refs/tags/v1.2.4.tar.gz"
-  sha256 "a916214d3e81de19b04bcf569d1568f31b78c097f20fe953881daac784b0fb6c"
+  sha256 "dcf2a603d2bea61f54bd2a6db22fe0e0b0e4e35751e04e9683d3c0c8b1812e3a"
   version "1.2.4"
   license "MIT"
   head "https://github.com/zircote/rlm-rs.git", branch: "main"
