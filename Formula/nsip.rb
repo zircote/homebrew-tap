@@ -7,26 +7,26 @@ class Nsip < Formula
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/zircote/nsip/releases/download/v0.3.3/nsip-macos-arm64"
-      sha256 "0019dfc4b32d63c1392aa264aed2253c1e0c2fb09216f8e2cc269bbfb8bb49b5"
+      sha256 "c86853048896c2f8b6d2d02600a70f992fc56b96127257d089e3d800ffbe26ca"
     else
       url "https://github.com/zircote/nsip/releases/download/v0.3.3/nsip-macos-amd64"
-      sha256 "0019dfc4b32d63c1392aa264aed2253c1e0c2fb09216f8e2cc269bbfb8bb49b5"
+      sha256 "9f6ee1ac49bd146c1fb6dc68015c48d648dc0b5f050fdc9e7c996732fdee8575"
     end
   end
 
   on_linux do
     url "https://github.com/zircote/nsip/releases/download/v0.3.3/nsip-linux-amd64"
-    sha256 "0019dfc4b32d63c1392aa264aed2253c1e0c2fb09216f8e2cc269bbfb8bb49b5"
+    sha256 "a1da26f66afed62ab279926a695f4033b84c228163534497ede16ebced591e38"
   end
 
   resource "completions" do
     url "https://github.com/zircote/nsip/releases/download/v0.3.3/nsip-completions.tar.gz"
-    sha256 "0019dfc4b32d63c1392aa264aed2253c1e0c2fb09216f8e2cc269bbfb8bb49b5"
+    sha256 "dd8099bb729dba3045f6627a592412f9dccbeeecc5a813ef4348e27680d0ab4f"
   end
 
   resource "man-pages" do
     url "https://github.com/zircote/nsip/releases/download/v0.3.3/nsip-man-pages.tar.gz"
-    sha256 "0019dfc4b32d63c1392aa264aed2253c1e0c2fb09216f8e2cc269bbfb8bb49b5"
+    sha256 "a1c1ff6fb457b01688088be9029d800cbd07dd45a7052c402f32316dd47d01c8"
   end
 
   def install
