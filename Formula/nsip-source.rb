@@ -1,9 +1,9 @@
 class NsipSource < Formula
   desc "Sheep genetic evaluation CLI (source)"
   homepage "https://github.com/zircote/nsip"
-  url "https://github.com/zircote/nsip/archive/refs/tags/v0.4.0-rc1.tar.gz"
-  sha256 "3cf50e3eb11eedb18275545d602266147783935a09407fb42b9e77689396d77c"
-  version "0.4.0-rc1"
+  url "https://github.com/zircote/nsip/archive/refs/tags/v0.4.0.tar.gz"
+  sha256 "f5408942c3cfe5380230c5267d3ee056f07ebcec2fb0c110053346ba30f13099"
+  version "0.4.0"
   license "MIT"
 
   depends_on "rust" => :build

@@ -1,32 +1,32 @@
 class Nsip < Formula
   desc "Sheep genetic evaluation CLI"
   homepage "https://github.com/zircote/nsip"
-  version "0.4.0-rc1"
+  version "0.4.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/zircote/nsip/releases/download/v0.4.0-rc1/nsip-macos-arm64"
-      sha256 "6b78fd9187138166fb9ae3f9aead49cf3953eb614ce8d112fb413ff42e01206c"
+      url "https://github.com/zircote/nsip/releases/download/v0.4.0/nsip-macos-arm64"
+      sha256 "0af5aef02ffaae3a7b9bb4b69d10945e657ba62b40980d683e73acda40f1222b"
     else
-      url "https://github.com/zircote/nsip/releases/download/v0.4.0-rc1/nsip-macos-amd64"
-      sha256 "41ec7ea4767599ef7ae3deed2b1567f04dcd42f79401c6d0fef1aa06b03d9d89"
+      url "https://github.com/zircote/nsip/releases/download/v0.4.0/nsip-macos-amd64"
+      sha256 "676cf09843a4eae399c9cc64cc05f7f381e014c16100d85d61e892b3bd7f1bda"
     end
   end
 
   on_linux do
-    url "https://github.com/zircote/nsip/releases/download/v0.4.0-rc1/nsip-linux-amd64"
-    sha256 "2a015292b0602354f12fadce65892fea36e25657f9d5413c8f7fbad3cba6b3dc"
+    url "https://github.com/zircote/nsip/releases/download/v0.4.0/nsip-linux-amd64"
+    sha256 "ad6d2e2b2d0a8ed5457d02d0e1c82c2e25ba34a42517a5c874d58c69af113607"
   end
 
   resource "completions" do
-    url "https://github.com/zircote/nsip/releases/download/v0.4.0-rc1/nsip-completions.tar.gz"
-    sha256 "8d771cfcbc9c97e34396f408f5cac46b2ca0b1ee159753326530b16d0f66fe68"
+    url "https://github.com/zircote/nsip/releases/download/v0.4.0/nsip-completions.tar.gz"
+    sha256 "a511e348efa3429c8fd79dc173f78cafaa02120bc3341b02332666cb3ec16e42"
   end
 
   resource "man-pages" do
-    url "https://github.com/zircote/nsip/releases/download/v0.4.0-rc1/nsip-man-pages.tar.gz"
-    sha256 "2d5f6f839244351a3c8117307519c680ecdc07988e76835ce3009ed7a2fa2b23"
+    url "https://github.com/zircote/nsip/releases/download/v0.4.0/nsip-man-pages.tar.gz"
+    sha256 "08d9e536486d69053454982cf571cc97695a0385197b8645ed962e442a3a7e45"
   end
 
   def install
