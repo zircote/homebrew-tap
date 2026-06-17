@@ -1,43 +1,43 @@
 class Nsip < Formula
   desc "Sheep genetic evaluation CLI"
   homepage "https://github.com/zircote/nsip"
-  version "0.6.2"
+  version "0.7.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/zircote/nsip/releases/download/v0.6.2/nsip-0.6.2-macos-arm64"
-      sha256 "cb1dacc54ce0ab156f2da773734074f94c03df7bc93c35f4e6cd9301ec95b05e"
+      url "https://github.com/zircote/nsip/releases/download/v0.7.0/nsip-0.7.0-macos-arm64"
+      sha256 "6c0402659886b1e81c065fa09d326045e8616681f6a0b9285cddfe3933ca5087"
     else
-      url "https://github.com/zircote/nsip/releases/download/v0.6.2/nsip-0.6.2-macos-amd64"
-      sha256 "a504388003bdcf379507154863bba414ce78ec936feb7d571407100137bf4770"
+      url "https://github.com/zircote/nsip/releases/download/v0.7.0/nsip-0.7.0-macos-amd64"
+      sha256 "af01b94410df5c3f082384909b750f4815c6e52f8b350d9a92e7d54c898d0fa6"
     end
   end
 
   on_linux do
-    url "https://github.com/zircote/nsip/releases/download/v0.6.2/nsip-0.6.2-linux-amd64"
-    sha256 "73cbf86c15b65471935037e5d8c9d6683fc7ca9cf4c9ca74457c5125c050d683"
+    url "https://github.com/zircote/nsip/releases/download/v0.7.0/nsip-0.7.0-linux-amd64"
+    sha256 "6d5bb32ef69b6719b1878ed02ffb5f3e905e4bc070c799aa6cd7758a407af86b"
   end
 
   resource "completions" do
-    url "https://github.com/zircote/nsip/releases/download/v0.6.2/nsip-0.6.2-completions.tar.gz"
-    sha256 "e898c02f69df2a3a98102012c3c608048f442845c39250b86480350b6d097b46"
+    url "https://github.com/zircote/nsip/releases/download/v0.7.0/nsip-0.7.0-completions.tar.gz"
+    sha256 "dae1963267a8d0b8403ebab01c4c3ff68f2f89fbefb2d6535b0dfb371922a1b8"
   end
 
   resource "man-pages" do
-    url "https://github.com/zircote/nsip/releases/download/v0.6.2/nsip-0.6.2-man-pages.tar.gz"
-    sha256 "69931b66915d65f66a3b8a3e05b2aaa0a398bbe22da50c60b92d9b7e90434387"
+    url "https://github.com/zircote/nsip/releases/download/v0.7.0/nsip-0.7.0-man-pages.tar.gz"
+    sha256 "df9797674968fb4e2c5ca63d712eb0f8139bf3339dd1eb2b98daa4675be9fd5b"
   end
 
   def install
     if OS.mac?
       if Hardware::CPU.arm?
-        bin.install "nsip-0.6.2-macos-arm64" => "nsip"
+        bin.install "nsip-0.7.0-macos-arm64" => "nsip"
       else
-        bin.install "nsip-0.6.2-macos-amd64" => "nsip"
+        bin.install "nsip-0.7.0-macos-amd64" => "nsip"
       end
     elsif OS.linux?
-      bin.install "nsip-0.6.2-linux-amd64" => "nsip"
+      bin.install "nsip-0.7.0-linux-amd64" => "nsip"
     end
 
     resource("completions").stage do
